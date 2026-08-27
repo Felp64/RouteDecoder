@@ -1,6 +1,16 @@
 # RouteDecoder
 
-Backend Java/Spring Boot para processar CSV com `latitude`/`longitude`, executar reverse geocoding e devolver CSV enriquecido.
+## Visão Geral
+O **RouteDecoder** é um backend em Java/Spring Boot para processar arquivos CSV com coordenadas (`latitude`, `longitude`), executar reverse geocoding e retornar um CSV enriquecido com endereço formatado.
+
+A aplicação foi construída para ser **stateless** e escalar horizontalmente com múltiplas instâncias, usando Redis como cache distribuído e Nginx como load balancer.
+
+## Arquitetura
+- **Spring Boot**: API e processamento de arquivos
+- **OpenStreetMap/Nominatim**: provedor padrão de reverse geocoding
+- **Redis**: cache distribuído de coordenadas já processadas
+- **Nginx**: balanceamento entre múltiplas instâncias da API
+- **Docker Compose**: orquestração local da stack
 
 ## Estrutura
 
